@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beslin Sam Mathew | PLC & Automation Engineer</title>
+
+<meta name="description" content="Beslin Sam Mathew - PLC Automation Systems Engineer specializing in PLC programming, HMI development, industrial automation and commissioning.">
+
+<style>
+:root{
+    --bg:#050a10;
+    --bg2:#09131e;
+    --card:#0c1824;
+    --line:rgba(0,220,255,.16);
+    --cyan:#00e5ff;
+    --blue:#168cff;
+    --orange:#ff9d3d;
+    --white:#f4f8fb;
+    --muted:#91a5b5;
+    --green:#31e6a1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(0,229,255,.09), transparent 30%),
+        radial-gradient(circle at 10% 50%, rgba(22,140,255,.07), transparent 30%),
+        var(--bg);
+    color:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(0,229,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,.04) 1px, transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1150px,92%);
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,10,16,.78);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+    width:min(1150px,92%);
+    margin:auto;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-weight:800;
+    letter-spacing:2px;
+    color:var(--cyan);
+}
+
+.logo span{
+    color:white;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-size:14px;
+    color:#b9c8d4;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--cyan);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-content{
+    padding-top:70px;
+    position:relative;
+    z-index:2;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid rgba(49,230,161,.3);
+    background:rgba(49,230,161,.06);
+    color:var(--green);
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 15px var(--green);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.35;transform:scale(.7);}
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:.95;
+    letter-spacing:-3px;
+    max-width:900px;
+}
+
+.hero h1 span{
+    color:var(--cyan);
+    text-shadow:0 0 30px rgba(0,229,255,.35);
+}
+
+.hero-title{
+    margin-top:22px;
+    font-size:clamp(18px,2.4vw,28px);
+    color:#d8e6ef;
+    font-weight:600;
+}
+
+.hero-description{
+    max-width:700px;
+    margin-top:20px;
+    color:var(--muted);
+    font-size:17px;
+}
+
+.buttons{
+    margin-top:32px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 21px;
+    border-radius:7px;
+    border:1px solid var(--line);
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    color:#001018;
+}
+
+.btn-secondary{
+    color:var(--cyan);
+    background:rgba(0,229,255,.04);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(0,229,255,.15);
+}
+
+/* AUTOMATION VISUAL */
+
+.automation-visual{
+    margin-top:70px;
+    padding:20px;
+    border:1px solid var(--line);
+    background:rgba(4,14,22,.65);
+    border-radius:14px;
+    overflow:hidden;
+}
+
+.visual-title{
+    color:#728b9c;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.flow{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.node{
+    min-width:130px;
+    padding:16px 10px;
+    text-align:center;
+    border:1px solid rgba(0,229,255,.22);
+    border-radius:9px;
+    background:#08131e;
+    position:relative;
+    box-shadow:inset 0 0 20px rgba(0,229,255,.03);
+}
+
+.node strong{
+    display:block;
+    color:white;
+    font-size:13px;
+}
+
+.node small{
+    color:#6f8798;
+    font-size:10px;
+}
+
+.signal{
+    height:2px;
+    flex:1;
+    background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+    position:relative;
+    overflow:hidden;
+}
+
+.signal::after{
+    content:"";
+    position:absolute;
+    width:35px;
+    height:100%;
+    background:white;
+    box-shadow:0 0 12px var(--cyan);
+    animation:signalMove 2s linear infinite;
+}
+
+@keyframes signalMove{
+    from{left:-40px}
+    to{left:100%}
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 0;
+}
+
+.section-label{
+    color:var(--cyan);
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-size:clamp(30px,4vw,48px);
+    margin-bottom:20px;
+}
+
+.section-intro{
+    color:var(--muted);
+    max-width:720px;
+    margin-bottom:45px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:30px;
+}
+
+.card{
+    background:linear-gradient(145deg,rgba(13,28,42,.9),rgba(6,15,24,.9));
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(0,229,255,.38);
+    box-shadow:0 15px 45px rgba(0,0,0,.3);
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.profile-list{
+    display:grid;
+    gap:15px;
+}
+
+.profile-item{
+    padding-bottom:14px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.profile-item:last-child{
+    border-bottom:none;
+}
+
+.profile-item small{
+    color:#6d8494;
+    display:block;
+}
+
+.profile-item strong{
+    color:#eaf6fc;
+}
+
+/* SKILLS */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.skill{
+    min-height:145px;
+}
+
+.skill-icon{
+    font-size:25px;
+    color:var(--cyan);
+    margin-bottom:15px;
+}
+
+.skill h3{
+    margin-bottom:8px;
+    font-size:17px;
+}
+
+.skill p{
+    font-size:13px;
+}
+
+/* EXPERIENCE */
+
+.timeline{
+    position:relative;
+    max-width:850px;
+    margin-top:35px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(var(--cyan),transparent);
+}
+
+.timeline-item{
+    padding-left:40px;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:3px;
+    top:7px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 18px var(--cyan);
+}
+
+.date{
+    color:var(--orange);
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:5px;
+}
+
+.timeline-item h3{
+    font-size:22px;
+}
+
+.company{
+    color:var(--cyan);
+    margin-bottom:10px;
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+}
+
+.project::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(var(--cyan),var(--blue));
+}
+
+.project h3{
+    color:#f5fbff;
+    margin-bottom:8px;
+}
+
+.project .client{
+    color:var(--orange);
+    font-size:12px;
+    margin-bottom:12px;
+    letter-spacing:.5px;
+}
+
+.project p{
+    font-size:14px;
+}
+
+/* WORKFLOW */
+
+.workflow{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:40px;
+}
+
+.workflow-item{
+    text-align:center;
+    padding:20px 10px;
+    border:1px solid var(--line);
+    background:rgba(7,18,28,.7);
+    border-radius:10px;
+}
+
+.workflow-item span{
+    display:block;
+    color:var(--cyan);
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.workflow-item strong{
+    font-size:13px;
+}
+
+/* EDUCATION / LANGUAGES */
+
+.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.education h3{
+    margin-bottom:5px;
+}
+
+.education .school{
+    color:var(--cyan);
+    font-size:14px;
+}
+
+.education .year{
+    color:var(--orange);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.languages{
+    display:grid;
+    gap:12px;
+}
+
+.language{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    padding-bottom:10px;
+}
+
+.language span:last-child{
+    color:var(--cyan);
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+    border:1px solid var(--line);
+    background:
+        radial-gradient(circle at center,rgba(0,229,255,.07),transparent 50%),
+        rgba(8,18,28,.8);
+    border-radius:18px;
+    padding:65px 25px;
+}
+
+.contact h2{
+    font-size:clamp(32px,5vw,55px);
+    margin-bottom:15px;
+}
+
+.contact p{
+    color:var(--muted);
+    max-width:600px;
+    margin:0 auto 25px;
+}
+
+.contact-details{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
+    color:#b8cad5;
+}
+
+.contact-details a:hover{
+    color:var(--cyan);
+}
+
+/* FOOTER */
+
+footer{
+    padding:30px 0;
+    border-top:1px solid var(--line);
+    color:#657b8b;
+    font-size:12px;
+    text-align:center;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid,
+    .two-col{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .workflow{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .flow{
+        overflow-x:auto;
+        justify-content:flex-start;
+        padding-bottom:10px;
+    }
+
+    .signal{
+        min-width:35px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:550px){
+
+    .skills-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        letter-spacing:-1.5px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    section{
+        padding:75px 0;
+    }
+
+    .workflow{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">BESLIN<span>.ENGINEER</span></div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            CONTROL & AUTOMATION ENGINEER
+        </div>
+
+        <h1>
+            BESLIN<br>
+            <span>SAM MATHEW</span>
+        </h1>
+
+        <div class="hero-title">
+            PLC Automation Systems Engineer
+        </div>
+
+        <p class="hero-description">
+            Controls & Automation Project Engineer specializing in PLC programming,
+            HMI development, industrial networking and on-site commissioning
+            across automated production systems.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+                Explore Projects →
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+                Contact Me
+            </a>
+        </div>
+
+
+        <!-- AUTOMATION VISUAL -->
+
+        <div class="automation-visual">
+
+            <div class="visual-title">
+                Industrial Control Architecture
+            </div>
+
+            <div class="flow">
+
+                <div class="node">
+                    <strong>SENSORS</strong>
+                    <small>FIELD INPUTS</small>
+                </div>
+
+                <div class="signal"></div>
+
+                <div class="node">
+                    <strong>I/O</strong>
+                    <small>CONTROL SIGNALS</small>
+                </div>
+
+                <div class="signal"></div>
+
+                <div class="node">
+                    <strong>PLC</strong>
+                    <small>LOGIC CONTROL</small>
+                </div>
+
+                <div class="signal"></div>
+
+                <div class="node">
+                    <strong>HMI</strong>
+                    <small>OPERATOR</small>
+                </div>
+
+                <div class="signal"></div>
+
+                <div class="node">
+                    <strong>ACTUATORS</strong>
+                    <small>FIELD OUTPUTS</small>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container reveal">
+
+        <div class="section-label">01 / PROFILE</div>
+
+        <h2 class="section-title">
+            Engineering control systems<br>
+            for real production environments.
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="card">
+
+                <p>
+                    Controls & Automation Project Engineer with solid experience
+                    in PLC logic development, HMI design, industrial networking,
+                    and on-site commissioning across automated production systems.
+                </p>
+
+                <br>
+
+                <p>
+                    Advanced proficiency in Rockwell Automation Studio 5000
+                    and Siemens TIA Portal, with hands-on exposure to sensors,
+                    safety interlocks and field devices.
+                </p>
+
+                <br>
+
+                <p>
+                    Focused on delivering robust automation solutions that
+                    improve cycle time, system reliability and plant safety,
+                    while maintaining clear documentation and stakeholder
+                    communication.
+                </p>
+
+            </div>
+
+
+            <div class="card profile-list">
+
+                <div class="profile-item">
+                    <small>ROLE</small>
+                    <strong>PLC – Automation Systems Engineer</strong>
+                </div>
+
+                <div class="profile-item">
+                    <small>LOCATION</small>
+                    <strong>Kollam, Kerala, India</strong>
+                </div>
+
+                <div class="profile-item">
+                    <small>ENGINEERING DOMAIN</small>
+                    <strong>Industrial Automation & Controls</strong>
+                </div>
+
+                <div class="profile-item">
+                    <small>PRIMARY PLATFORMS</small>
+                    <strong>Rockwell Automation / Siemens</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container reveal">
+
+        <div class="section-label">02 / TECHNICAL TOOLKIT</div>
+
+        <h2 class="section-title">
+            Automation technology stack.
+        </h2>
+
+        <p class="section-intro">
+            PLC programming, HMI development and industrial control technologies
+            used across production automation projects.
+        </p>
+
+
+        <div class="skills-grid">
+
+            <div class="card skill">
+                <div class="skill-icon">⚙</div>
+                <h3>Studio 5000</h3>
+                <p>
+                    Allen-Bradley PLC programming, implementation,
+                    modification and validation.
+                </p>
+            </div>
+
+            <div class="card skill">
+                <div class="skill-icon">▣</div>
+                <h3>RSLogix 500</h3>
+                <p>
+                    PLC programming and control logic development
+                    using Allen-Bradley platforms.
+                </p>
+            </div>
+
+            <div class="card skill">
+                <div class="skill-icon">◈</div>
+                <h3>Siemens TIA Portal</h3>
+                <p>
+                    PLC and HMI engineering using TIA Portal V17
+                    for industrial automation applications.
+                </p>
+            </div>
+
+            <div class="card skill">
+                <div class="skill-icon">▤</div>
+                <h3>FactoryTalk View</h3>
+                <p>
+                    HMI development and visualization for
+                    Allen-Bradley automation systems.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="container reveal">
+
+        <div class="section-label">03 / EXPERIENCE</div>
+
+        <h2 class="section-title">
+            Professional experience.
+        </h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="date">
+                    04 NOV 2024 — PRESENT
+                </div>
+
+                <h3>Project Engineer – PLC</h3>
+
+                <div class="company">
+                    DENAR Automations and Controls LLP · Pune, Maharashtra
+                </div>
+
+                <p>
+                    PLC software development, automation implementation,
+                    HMI development, commissioning and project execution
+                    across industrial production systems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="container reveal">
+
+        <div class="section-label">04 / PROJECT PORTFOLIO</div>
+
+        <h2 class="section-title">
+            Selected automation projects.
+        </h2>
+
+        <p class="section-intro">
+            Project experience covering automotive production,
+            PLC implementation, HMI development, commissioning
+            and existing-line modification.
+        </p>
+
+
+        <div class="projects">
+
+            <div class="card project">
+
+                <div class="client">
+                    MAHINDRA & MAHINDRA LTD · CHAKAN, PUNE
+                </div>
+
+                <h3>BEV</h3>
+
+                <p>
+                    Allen-Bradley Studio 5000.
+                    Program and HMI validation following Mahindra standard.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    TATA ELECTRIC MOBILITY · SANAND, GUJARAT
+                </div>
+
+                <h3>P500 – Body Side</h3>
+
+                <p>
+                    Allen-Bradley Studio 5000.
+                    Program implementation, commissioning and HMI development
+                    following FNA standard.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    TATA ELECTRIC MOBILITY · SANAND, GUJARAT
+                </div>
+
+                <h3>X401 – UBC Line</h3>
+
+                <p>
+                    Modified an existing production line for the new
+                    SIERRA variant using Allen-Bradley Studio 5000.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    TATA ELECTRIC MOBILITY · SANAND, GUJARAT
+                </div>
+
+                <h3>X401 – Body Side</h3>
+
+                <p>
+                    Existing-line modification for the new SIERRA variant
+                    using Allen-Bradley Studio 5000 and FNA standard.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    TATA ELECTRIC MOBILITY · SANAND, GUJARAT
+                </div>
+
+                <h3>X401 – Proto Line</h3>
+
+                <p>
+                    Developed offline PLC program and HMI using
+                    Allen-Bradley Studio 5000 followed by on-site commissioning.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    MAHINDRA & MAHINDRA LTD · CHAKAN, PUNE
+                </div>
+
+                <h3>STEP02 – Paint Line</h3>
+
+                <p>
+                    Siemens TIA Portal V17.
+                    Paint line commissioning following ABB Paint Standard.
+                </p>
+
+            </div>
+
+
+            <div class="card project">
+
+                <div class="client">
+                    MERCEDES-BENZ · PUNE, MAHARASHTRA
+                </div>
+
+                <h3>PLC & HMI Version Upgrade</h3>
+
+                <p>
+                    Siemens TIA Portal V17.
+                    PLC and HMI version upgrade project.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AUTOMATION WORKFLOW -->
+
+<section>
+
+    <div class="container reveal">
+
+        <div class="section-label">05 / ENGINEERING WORKFLOW</div>
+
+        <h2 class="section-title">
+            From field signals to machine control.
+        </h2>
+
+        <p class="section-intro">
+            A simplified representation of the automation engineering
+            workflow behind industrial production systems.
+        </p>
+
+
+        <div class="workflow">
+
+            <div class="workflow-item">
+                <span>◉</span>
+                <strong>Field Devices</strong>
+            </div>
+
+            <div class="workflow-item">
+                <span>⇄</span>
+                <strong>I/O & Network</strong>
+            </div>
+
+            <div class="workflow-item">
+                <span>⚙</span>
+                <strong>PLC Logic</strong>
+            </div>
+
+            <div class="workflow-item">
+                <span>▣</span>
+                <strong>HMI / SCADA</strong>
+            </div>
+
+            <div class="workflow-item">
+                <span>⚡</span>
+                <strong>Machine Output</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section>
+
+    <div class="container reveal">
+
+        <div class="section-label">06 / EDUCATION</div>
+
+        <h2 class="section-title">
+            Academic foundation.
+        </h2>
+
+
+        <div class="two-col">
+
+            <div class="card education">
+
+                <h3>B.Tech – Electronics & Communication Engineering</h3>
+
+                <div class="school">
+                    APJ Abdul Kalam Technological University, Kerala, India
+                </div>
+
+                <div class="year">
+                    2019 — 2023
+                </div>
+
+            </div>
+
+
+            <div class="card education">
+
+                <h3>Higher Secondary Education</h3>
+
+                <div class="school">
+                    Computer Science Group · Board of Higher Secondary Examinations,
+                    Government of Kerala
+                </div>
+
+                <div class="year">
+                    March 2019
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LANGUAGES -->
+
+<section>
+
+    <div class="container reveal">
+
+        <div class="section-label">07 / COMMUNICATION</div>
+
+        <h2 class="section-title">
+            Languages.
+        </h2>
+
+        <div class="card languages">
+
+            <div class="language">
+                <span>English</span>
+                <span>Proficient</span>
+            </div>
+
+            <div class="language">
+                <span>Malayalam</span>
+                <span>Mother Tongue</span>
+            </div>
+
+            <div class="language">
+                <span>Hindi</span>
+                <span>Eloquent</span>
+            </div>
+
+            <div class="language">
+                <span>Tamil</span>
+                <span>Eloquent</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container reveal">
+
+        <div class="contact">
+
+            <div class="section-label">
+                08 / CONTACT
+            </div>
+
+            <h2>
+                Let's build smarter<br>
+                automation systems.
+            </h2>
+
+            <p>
+                For automation engineering opportunities, project
+                collaboration or technical discussions, feel free to connect.
+            </p>
+
+            <div class="buttons" style="justify-content:center;">
+
+                <a
+                    href="mailto:beslinsam@gmail.com"
+                    class="btn btn-primary">
+                    Email Me
+                </a>
+
+                <!-- Replace # with your actual LinkedIn URL -->
+                <a
+                    href="linkedin.com/in/beslin-automation"
+                    class="btn btn-secondary"
+                    target="_blank">
+                    LinkedIn
+                </a>
+
+            </div>
+
+            <div class="contact-details">
+
+                <a href="mailto:beslinsam@gmail.com">
+                    beslinsam@gmail.com
+                </a>
+
+                <a href="tel:+917736351570">
+                    +91 77363 51570
+                </a>
+
+                <span>
+                    Kollam, Kerala, India
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+        © 2024 Beslin Sam Mathew · PLC & Automation Systems Engineer
+    </div>
+
+</footer>
+
+
+<script>
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("visible");
+            }
+        });
+    },
+    {
+        threshold:0.12
+    }
+);
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+</script>
+
+</body>
+</html>
